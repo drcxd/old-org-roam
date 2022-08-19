@@ -1,0 +1,29 @@
+:PROPERTIES:
+:ID:       d43a5f4a-a984-4ff7-b336-5237a6a37495
+:END:
+#+title: States of Thread
+#+filetags: :computer-science:operating-system:
+
+A [[id:7ba23e43-9f67-4502-a54b-e6a2bd647371][thread]] can be in one of three states:
+
+1. Running :: the thread is actively running on a core.
+2. Runnable :: the thread is able to run but is waiting to receive a
+   time slice on a core.
+3. Blocked :: the thread is asleep, waiting for some condition to
+   become true.
+
+* Transition of States
+** Running to Runnable
+The thread has used up its time slice and is stopped by the operating
+system.
+** Running to Block
+The thread is blocked by calling a blocking function, or waiting on
+some conditiong.
+** Block to Runnable
+The operating system wakes the thread up since the condition it's
+waiting on become true.
+** Runnable to Running
+The thread is scheduled to run by the operating system.
+
+* Reference
+[fn:1] Jason Gregory. Game Engine Architecture, 3rd Edition. 4.4.6.5

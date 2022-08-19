@@ -1,0 +1,107 @@
+:PROPERTIES:
+:ID:       261ba555-7c11-46af-baa2-dc293223d379
+:END:
+#+title: Key Binding
+#+filetags: :emacs:
+
+* Frequently Used Commands
+** General
+ * =switch-to-buffer= or =consult-buffer=
+ * =save-buffer=
+ * =other-window= or =ace-window=
+ * =kill-buffer=
+ * =find-file=
+ * =consult-line=
+ * =consult-recent-file=
+ * =consult-ripgrep=
+ * =delete-other-windows=
+ * =split-window-vertically=
+ * =split-window-horizontally=
+ * =delete-window=
+ * =shell-command=
+ * =eval-region=
+ * =compile=
+** Programming
+*** Edit
+ * =evilnc-comment-or-uncomment-lines=
+ * =evilnc-copy-and-comment-lines=
+ * =highlight-symbol=
+ * =highlight-symbol-remove-all=
+ * =git-gutter=
+*** Project
+ * =projectile-find-file=
+ * =projectile-invalidate-cache=
+ * =projectile-switch-project=
+*** Version Control
+ * =vc-dir=
+ * =vc-annotate=
+ * =vc-print-log=
+ * =vc-diff=
+ * =vc-revert=
+ * =vc-ediff=
+ * =magit=
+*** LSP
+ * =lsp-find-declaration=
+ * =lsp-clangd-find-other-file=
+ * =lsp-execute-code-action=
+ * =lsp-rename=
+ * =lsp-ui-doc-glance=
+ * =consult-lsp-symbols=
+ * =lsp-workspace-restart=
+ * =consult-lsp-diagnostics=
+ * =lsp-find-definition=
+ * =lsp-workspace-shutdown=
+** Note Taking
+*** Org Roam
+ * =org-roam-node-find=
+ * =org-roam-node-insert=
+ * =org-roam-tag-add=
+*** Denote
+ * =denote=
+ * =denote-link=
+ * =denote-link-backlinks=
+ * =denote-link-find-file=
+* Mefow
+When using [[id:9dca83e6-cda0-4472-8908-786dc5f6ee89][Meow]], it is better not to bind to =C-c c/x/m/g/h=, because
+Meow translates thoses keys specially in KEYPAD.
+| Command                             | Default   | KEYPAD          | Remap    | KEYPAD   |
+|-------------------------------------+-----------+-----------------+----------+----------|
+| =switch-to-buffer=                  | =C-x b=   | =SPC x SPC b=   | =C-c b=  | =SPC b=  |
+| =save-buffer=                       | =C-x C-s= | =SPC x s=       |          |          |
+| =other-window=                      | =C-x o=   | =SPC x SPC o=   | =C-c o=  | =SPC o=  |
+| =kill-buffer=                       | =C-x k=   | =SPC x SPC k=   | =C-c k=  | =SPC k=  |
+| =find-file=                         | =C-x C-f= | =SPC x f=       |          |          |
+| =consult-line=                      |           |                 | =C-c i=  | =SPC i=  |
+| =consult-ripgrep=                   |           |                 | =C-c r=  | =SPC r=  |
+| =delete-other-windows=              | =C-x 1=   | =SPC x 1=       | =C-c w1= | =SPC w1= |
+| =split-window-vertically=           | =C-x 3=   | =SPC x 3=       | =C-c w2= | =SPC w2= |
+| =split-window-horizontally=         | =C-x 2=   | =SPC x 2=       | =C-c w3= | =SPC w3= |
+| =delete-window=                     | =C-x 0=   | =SPC x SPC 0=   | =C-c w0= | =SPC w0= |
+| =shell-command=                     | =M-!=     | =SPC m !=       | =C-c s=  | =SPC s=  |
+| =eval-region=                       |           |                 | =C-c er= | =SPC er= |
+| =compile=                           |           |                 | =C-c pc= | =SPC pc= |
+| =evilnc-comment-or-uncomment-lines= |           |                 | =C-c d=  | =SPC d=  |
+| =evilnc-copy-and-comment-lines=     |           |                 | =C-c ec= | =SPC ec= |
+| =highlight-symbol=                  | =M-s h.=  | =SPC m s h .=   | =C-c es= | =SPC es= |
+| =highlight-symbol-remove-all=       |           |                 | =C-c ea= | =SPC ea= |
+| =git-gutter=                        |           |                 | =C-c eg= | =SPC eg= |
+| =projectile-find-file=              |           |                 | =C-c pf= | =SPC pf= |
+| =projectile-invalidate-cache=       |           |                 | =C-c pi= | =SPC pi= |
+| =projectile-switch-project=         |           |                 | =C-c ps= | =SPC ps= |
+| =vc-dir=                            | =C-x v d= | =SPC x SPC v d= | =C-c vs= | =SPC vs= |
+| =vc-annotate=                       | =C-x v g= | =SPC x SPC v g= | =C-c vg= | =SPC vg= |
+| =vc-print-log=                      | =C-x v l= | =SPC x SPC v l= | =C-c vl= | =SPC vl= |
+| =vc-diff=                           | =C-x v == | =SPC x SPC v == | =C-c vd= | =SPC vd= |
+| =vc-revert=                         | =C-x v u= | =SPC x SPC v u= | =C-c vu= | =SPC vu= |
+| =vc-ediff=                          |           |                 | =C-c ve= | =SPC ve= |
+| =magit=                             |           |                 | =C-c vm= | =SPC vm= |
+| lsp keys                            |           |                 |          |          |
+| note taking keys                    |           |                 |          |          |
+|-------------------------------------+-----------+-----------------+----------+----------|
+** Leader Key Status
+=x/h/m/g/c= is occupied by meow's KEYPAD native interpretation. =j/k=
+is occupied by motion state override.
+#+begin_example
+  a b c d e f g h i j k l m n o p q r s t u v w x y z
+    x x x x   x x x x x x x x x x   x x     x x x
+#+end_example

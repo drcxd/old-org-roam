@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:       46e295cc-03ab-47f8-af74-efff48cb01f2
+:END:
+#+title: MESI Protocol
+#+filetags: :computer-science:concurrency:
+
+MESI is a widely used [[id:0dd5cfd0-e2d1-4d3e-8d08-a3e9b18bf636][Cache Coherency Protocol]].
+
+Under this protocol, each cache line can be in one of four states:
+
++ Modified. This cache line has been modified locally.
++ Exclusive. The main RAM block corresponding to this cache line
+  exists only in this core's L1 cache.
++ Shared. More than one core's L1 cache holds a copy of the main RAM
+  block corresponding to this cache line. All cores has identical copy
+  of it.
++ Invalid. This cache line no longer contains valid data. The next
+  read from this cache line need to obtain data from other L1 cache or
+  main RAM.
+

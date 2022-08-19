@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       7ba23e43-9f67-4502-a54b-e6a2bd647371
+:END:
+#+title: Thread
+#+filetags: :operating-system:computer-science:
+
+A thread is an encapsulation of a running instance of a stream of
+machine language instructions.
+
+Threads are the unit of program execution within an operating system,
+not processes.
+
+Each thread is comprised of :
+ * an unique thread id within its process
+ * the thread's [[id:3e87032c-4614-4507-92c3-6eb3f86aa7c3][call stack]]
+ * the values of registers
+ * a block of general purpose storage associated with each thread,
+   known as /thread local storgae/ (TLS)
+
+* Reference
+[fn:1] Jason Gregory. Game Engine Architecture, Third Edition, 4.4.5.1

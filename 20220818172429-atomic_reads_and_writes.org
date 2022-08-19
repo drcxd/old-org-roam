@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       596b0a8c-b1bb-4e22-b9a0-1a855d1181a8
+:END:
+#+title: Atomic Reads and Writes
+#+filetags: :concurrency:computer-science:
+
+On most CPUs, it can be reasonably certain that a read or write of a
+four-byte-aligned 32-bit integer will be atomic.
+
+Some CPU also support atomic reads and writes of smaller or larger
+objects as long as they are aligned to a multiple of their own size.

@@ -1,0 +1,7 @@
+:PROPERTIES:
+:ID:       f9c52f78-fd4b-475a-9b56-01e72e483da2
+:END:
+#+title: Critical Operation
+#+filetags: :computer-science:concurrency:
+
+A critical operation refers to any operation that mutate [[id:4339c01d-1bfc-4beb-8d6c-155514a73041][shared data]].

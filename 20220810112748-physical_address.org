@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       9e3f2ff3-0f33-45a0-8452-a87a24ed13b5
+:END:
+#+title: Physical Address
+#+filetags: :operating-system:computer-science:
+
+A physical address is an address passed onto the address bus. It is
+directly mapped to some cell of the main memory.

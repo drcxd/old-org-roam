@@ -1,0 +1,289 @@
+:PROPERTIES:
+:ID:       3d576eac-f2c5-4f6d-b6c2-4b7cb911e7c3
+:END:
+#+title: GameEngineArchitectureOutline
+#+filetags: :computer-science:game-development:game-engine:
+* Introduction
+* Tools of the Trade
+* Fundamentals of Software Engineering for Games
+** C++ Review and Best Practices
+** Catching and Handling Errors
+** Data, Code and Memory Layout
+*** Numeric Representations
+**** Numeric Bases
+**** Signed and Unsigned Integers
+**** Fixed-Point Notation
+**** Floating-Point Notation
++ The Trade-Off between Magnitude and Precision
++ Subnormal Values
++ Machine Epsilon
++ Unites in the Last Place (ULP)
++ Impact of Floating-Point Precision on Software
++ IEEE Floating-Point Bit Tricks
+*** Primitive Data Types
++ Portable Sized Types
++ OGRE's Primitive Data Types
+**** Multibyte Values and Endianness
++ Integer Endian-Swapping
++ Floating-Point Endian-Swappping
+*** Kilobytes versus Kibibytes
+*** Decalrations, Definitions and Linkage
+**** Translation Units Revisited
+**** Declaration versus Definition
++ Multiplicity of Declarations and Definitions
++ Definitions in Header Files and Inlining
++ Tempaltes and Header Files
+**** Linkage
+*** Memory Layout of a C/C++ Program
+**** Executable Image
+**** Program Stack
+**** Dynamic Allocation Heap
+*** Member Variables
+**** Class-Static Members
+*** Object Layout in Memory
+**** Alignment and Packing
+**** Memory Layout of C++ Classes
+** Computer Hardware Fundamentals
+*** Learning from the Simpler Computers of Yesterday
+*** Anatomy of a Computer
+*** CPU
+**** ALU
+**** VPU
+**** Registers
+ * Instruction Pointer
+ * Stack Pointer
+ * Base Pointer
+ * Status Register
+ * Register Formats
+**** Control Unit
+*** Clock
+**** Clock Speed versus Processing Power
+*** Memory
+*** Buses
+**** Bus Width
+**** Words
+**** n-Bit Computers
+*** Machine and Assembly Language
+**** Instruction Set Architecture (ISA)
+**** Machine Language
+**** Assembly Language
+**** Addressing Mode
+ * Register addressing
+ * Immediate addressing
+ * Direct addressing
+ * Register indirect addressing
+ * Relative addressing
+ * Other addressing modes
+**** Further Reading on Assembly Language
+** Memory Architectures
+*** Memory Mapping
+**** Memory-Mapped I/O
+**** Video RAM
+**** Case Study: The Apple II Memory Map
+*** Vitual Memory
+**** Virtual Memory Pages
+**** Virtual to Physical Address Translation
+**** Handling Page Faults
+**** The Translation Lookaside Buffer (TLB)
+**** Further Reading on Virtual Memory
+*** Memory Architectures for Latency Reduction
+**** The Memory Gap
+**** Register Files
+*** Memory Cache Hierarchies
+**** Cahce Lines
+**** Mapping Cache Lines to Main RAM Addresses
+**** Addressing the Cache
+**** Set Associativity and Replacement Policy
+**** Multilevel Caches
+**** Instruction Cache and Data Cache
+**** Write Policy
+**** Cache Coherency: MESI, MOESI and MESIF
+**** Avoiding Cache Misses
+*** Nonuniform Memory Access (NUMA)
+**** SPU Local Stores on the PS3
+**** PS2 Scratchpad (SPR)
+* Parallelism and Concurrent Programming
+** Defining Concurrency and Parallelism
+*** Concurrency
+*** Parallelism
+**** Implicit versus Explicit Parallelism
+*** Task versus Data Parallelism
+*** Flynn's Taxonomy
+ * Single instruction, single data (SISD)
+ * Multiple instrtuction, multiple data (MIMD)
+ * Single instruction, multiple data (SIMD)
+ * Multiple instruction, single data (MISD)
+**** Single versus Multiple Data
+**** GPU Parallelism: SIMT
+*** Orthogonality of Concurrency and Parallelism
+*** Roadmap of the Chapter
+** Implicit Parallelism
+*** Pipelining
+*** Latency versus Throughput
+*** Pipeline Depths
+*** Stalls
+*** Data Dependencies
+**** Instruction Reordering
+**** Out-of-Order Execution
+*** Branch Dependencies
+**** Speculative Execution
+**** Predication
+- Note taken on [2022-08-09 Tue 16:57] \\
+  It’s important to realize that predication only works when both
+  branches can be executed safely.
+*** Superscalar CPUs
+**** Complexity of Superscalar Designs
+**** Superscalar and RISC
+*** Very Long Instruction Word (VLIW)
+** Explicit Parallelism
+- Note taken on [2022-08-09 Tue 17:10] \\
+  Explicit parallelism is designed to make concurrent software run
+  more efficiently. Hence all explicitly parallel hardware designs
+  permit mor than one instruction stream to be processed in parallel.
+*** Hyperthreading
+*** Multicore CPUs
+*** Symmetric versus Asymmetric Multiprocessing
+*** Distributed Computing
+** Operating System Fundamentals
+*** The Kernel
+**** Kernel Mode versus User Mode
+**** Kernal Mode Privileges
+*** Interrupts
+*** Kernel Calls
+- Note taken on [2022-08-09 Tue 17:43] \\
+  In order for user software to perform a privileged operation, the user
+  program must make a request to the kernel. Such a request is called a
+  /kernel call/ or /system call/.
+*** Preemptive Multitasking
+- Note taken on [2022-08-09 Tue 17:50] \\
+  To implement preemptive multitasking, the operating system responds to
+  a regularly-timed hardware interrupt in order to periodically /context
+  switch/ between the different programs running on the system.
+- Note taken on [2022-08-09 Tue 17:49] \\
+  The time slice during witch one particular program is allowed to run on the CPU is sometimes called the program's /quantum/.
+- Note taken on [2022-08-09 Tue 17:48] \\
+  In preemptive multitasking, programs still share the CPU by
+  time-slicing. However the scheduling of programs is controlled by the
+  operating system, not via cooperation between the programs themselves.
+*** Processes
+- Note taken on [2022-08-09 Tue 17:54] \\
+  A /process/ is the operating system's way of managing a /running
+  instance/ of a program contained in an /executable file/.
+**** Anatomy of a Process
+- Note taken on [2022-08-09 Tue 18:02] \\
+  Threads are the /fundamental unit of program execution/ within an
+  operating system, not processes. A process merely provides an
+  /environment/ within which its thread(s) can run, including a
+  virtual memory map and a set of /resources/ that are used by and
+  shared between all threads within that process.
+- Note taken on [2022-08-09 Tue 17:59] \\
+  A /thread/ encapsulates a running instance of a single stream of
+  machine language instructions.
+**** Virtual Memory Map of a Process
+ * Text, Data and BSS Sections
+ * Call Stack
+ * Heap
+ * Shared Libraries
+ * Kernel Pages
+ * Example Process Memory Map
+*** Threads
+**** Thread Libraries
+**** Thread Creation and Termination
+**** Joining Threads
+**** Polling, Blocking and Yielding
+ * Polling
+ * Blocking
+ * Yielding
+**** Contex Switching
+**** Thread Priorities and Affinity
+**** Thread Local Storage
+**** Thread Debugging
+*** Fibers
+**** Fiber Creation and Destruction
+**** Fiber States
+**** Fiber Migration
+**** Debugging with Fibers
+**** Further Reading on Fibers
+*** User-Level Threads and Coroutines
+**** Coroutines
+**** Kernel Threads versus User Threads
+*** Further Reading on Processes and Threads
+** Introduction to Concurrent Programming
+*** Why Write Concurrent Software?
+*** Concurrent Programming Models
+*** Race Conditions
+**** Critical Races
+**** Data Races
+*** Critical Operations and Atomicity
+**** Invocation and Response
+**** Atomicity Defined
+**** Making an Operation Atomic
+**** Atomicity as Serialization
+**** Data-Centric Consistency Models
+** Thread Synchronization Primitives
+*** Mutexes
+**** POSIX
+**** C++ Standard Library
+**** Windows
+*** Critical Sections
+*** Condition Variables
+*** Semaphores
+**** Mutex versus Binary Semaphore
+**** Implementing a Semaphore
+*** Windows Events
+** Problems with Lock-Based Concurrency
+*** Deadlock
+*** Livelock
+*** Starvation
+*** Priority Inversion
+*** The Dining Philosophers
+** Some Rules of Thumb for Concurrency
+*** Global Ordering Rules
+*** Transaction-Based Algorithms
+*** Minimize Contention
+*** Thread Safety
+** Lock-Free Concurrency
+*** Causes of Data Race Bugs
+*** Implementing Atomicity
+**** Atomicity by Disabling Interrupts
+**** Atomic Instructions
+**** Atomic Reads and Writes
+**** Atomic Read-Modify-Write
+**** Test and Set
+**** Exchange
+**** Compare and Swap
+**** ABA Problem
+**** Load Linked/Store Conditional
+**** Advantages of LL/SC over CAS
+**** Strong and Weak Compare-Exchange
+**** Relative Strength of Atomic RMW Instructions
+*** Barriers
+**** How Instruction Reordering Causes Concurrency Bugs
+**** Volatile in C/C++ (and Why It Doesn't Help Us)
+**** Compiler Barriers
+*** Memory Ordering Semantics
+**** Memory Caching Revisited
+**** Multicore Cache Coherency Protocols
+**** The MESI Protocol
+**** How MESI Can Go Wrong
+**** Memory Fences
+**** Acquire and Release Semantics
+**** When to Use Acquire and Release Semantics
+**** CPU Memory Models
+**** Fence Instructions on Real CPUs
+*** Atomic Variables
+**** C++ Memory Order
+ “Implementing Scalable Atomic Locks for Multi-Core Intel® EM64T and
+IA32 Architectures” by Michael Chynoweth
+*** Concurrency in Interpreted Programming Languages
+*** Spin Locks
+**** Basic Spin Locks
+**** Scoped Locks
+**** Reentrant Locks
+**** Reader-Writer Locks
+**** Lock-Not-Needed Assertions
+*** Lock-Free Transactions
+*** A Lock-Free Linked List
+*** Further Reading on Lock-Free Programming
+** SIMD/Vector Processing
+*** The SSE Instruction Set and Its Registers

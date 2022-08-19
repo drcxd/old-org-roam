@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       5769e617-fe6e-4b39-ab04-96e5ecb89e60
+:END:
+#+title: Virtual Address
+#+filetags: :computer-science:operating-system:
+
+An [[id:f4adfdc5-5e68-41d0-ba31-9aad7297fc12][user program]] uses virtual addresses to accesss its [[id:05d61602-db80-4697-a817-0a6b2b1195ec][virtual
+memory]]. The operating system must interpret it to obtain the actual
+[[id:9e3f2ff3-0f33-45a0-8452-a87a24ed13b5][physical address]].

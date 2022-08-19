@@ -1,0 +1,14 @@
+:PROPERTIES:
+:ID:       a9e02565-2c0b-408c-847b-e71f4ce00719
+:END:
+#+title: Termination of Thread
+#+filetags: :computer-science:operating-system:
+
+A [[id:7ba23e43-9f67-4502-a54b-e6a2bd647371][thread]] can terminates in a number of ways:
+
+ * it terminates normally by returning from its entry point function
+ * it terminates explicitly by calling functions such as
+   ~pthread_exit()~
+ * it is /killed/ by another thread, however, it may ignore the
+   request
+ * it is terminates with the process it belongs to

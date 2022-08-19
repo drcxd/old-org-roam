@@ -1,0 +1,15 @@
+:PROPERTIES:
+:ID:       562e111b-3e0b-4106-bef2-725d7cc83def
+:END:
+#+title: ABA Problem
+#+filetags: :computer-science:concurrency:
+
+ABA problem happens when a program try to use [[id:d4bd1682-59c2-4513-945f-fd18e47e93cd][Compare and Swap]] to
+achieve correct concurrency.
+
+Consider a thread reads a value =A= from some location in
+memory. Before it could use the compare-and-swap instruction to write
+the modified value back, it is interrupted by another thread, which
+writes the value to =B=, and then to =A= again. Then, the first thread
+is woke up and continue to execute. The CAS instruction cannot detect
+that the value has been changed and the write would succeed.

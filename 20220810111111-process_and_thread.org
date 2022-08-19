@@ -1,0 +1,17 @@
+:PROPERTIES:
+:ID:       f7634f67-4719-456b-9346-30492e786f58
+:END:
+#+title: Process versus Thread
+#+filetags: :operating-system:computer-science:
+
+ * A process contains one or more thread, while a thread can only
+   belong to one and only one process.
+ * A process contains the environment a thread requires to execute,
+   including a virtual memory map and resources used and shared by
+   threads.
+
+Detailed discussion about [[id:a53f7936-135e-410f-89cd-3a4935e43c6a][process]] and [[id:7ba23e43-9f67-4502-a54b-e6a2bd647371][thread]].
+
+* Reference
+
+[fn:1] Jason Gregory. Game Engine Architecture, Third Edition, 4.4.5.1

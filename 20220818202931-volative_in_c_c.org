@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       1213f404-fbcc-43ea-be68-89c24d7828f2
+:END:
+#+title: Volatile in C/C++
+#+filetags: :cpp:c:programming-language:
+
+=volative= is a key word defined in the C/C++ language
+standard. Variables modified by this key word would not use register
+cache. The variable's value will be read directly from memory every
+time it is accessed.

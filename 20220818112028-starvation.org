@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       20eeeef3-d6a7-4bc5-999d-3565a58b22a0
+:END:
+#+title: Starvation
+#+filetags: :computer-science:operating-system:concurrency:
+
+Starvation is a situation that one or more [[id:7ba23e43-9f67-4502-a54b-e6a2bd647371][thread]] fail to receive any
+execution time on the CPU.
+
+Starvation can happen when higher priority threads fail to give up
+control of CPU or when there is a [[id:dcdd5860-cdc8-46e8-b2eb-790fd59f718a][deadlock]] or [[id:190e74de-890b-4cbd-8dde-07aaa7a36d86][livelock]].

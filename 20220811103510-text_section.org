@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       b2ffa7f9-e570-43d4-8296-558f75f9b78b
+:END:
+#+title: Text Section
+#+filetags: :computer-science:operating-system:
+
+Part of an [[id:7fd3d0a9-74c5-455b-9d44-dd06c844a845][executable image]]. Text section is also called code secton.
+Text section contains machine language instructions of all functions
+defined by the program.

@@ -1,0 +1,13 @@
+:PROPERTIES:
+:ID:       05d61602-db80-4697-a817-0a6b2b1195ec
+:END:
+#+title: Virtual Memory
+#+filetags: :operating-system:computer-science:
+
+Virtual memory is a mechanism used to protect [[id:f4adfdc5-5e68-41d0-ba31-9aad7297fc12][user program]]s from
+directly access the physical memory, so user programs could not stomp
+over each other and corrupt operating system memory.
+
+Virtual memory is also useful when memory more than the machine's
+physical memory is requested by swapping out [[id:20155c50-78ff-4b37-a066-f7f93a1725d4][page]]s which are not used
+currently to disk.

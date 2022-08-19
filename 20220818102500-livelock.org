@@ -1,0 +1,13 @@
+:PROPERTIES:
+:ID:       190e74de-890b-4cbd-8dde-07aaa7a36d86
+:END:
+#+title: Livelock
+#+filetags: :computer-science:concurrency:
+
+Livelock is similar to [[id:dcdd5860-cdc8-46e8-b2eb-790fd59f718a][Deadlock]]. The difference is that the [[id:7ba23e43-9f67-4502-a54b-e6a2bd647371][Thread]]s in
+a livelock constantly switching [[id:d43a5f4a-a984-4ff7-b336-5237a6a37495][states]] from blocked to running, but
+still make no progress.
+
+Livelock usually happens when several threads are all trying to
+resolve the same deadlock, so a natural resolution to livelock is to
+only pick one threads to resolve the deadlock when one is detected.

@@ -1,0 +1,17 @@
+:PROPERTIES:
+:ID:       794b11a0-038d-4769-8d9f-eebd91efd9b4
+:END:
+#+title: Memory Map
+#+filetags: :computer-science:operating-system:
+
+A [[id:a53f7936-135e-410f-89cd-3a4935e43c6a][process]]'s [[id:7fdbb75a-f086-4991-98a7-ae300911eabf][page table]] defines its memory map.
+
+The memory map typically contains:
+ * [[id:b2ffa7f9-e570-43d4-8296-558f75f9b78b][text]], [[id:563cf0dc-69fa-4503-905c-ce5f54f6ac80][data]] and [[id:5dfef1ac-812e-424c-a30b-d3f0e99394e1][BSS]] sections from the program's executable file
+ * [[id:7795285c-a2f3-49c9-9c6d-a03207e82abf][shared libraries]] (DLLs) used by the program
+ * one [[id:3e87032c-4614-4507-92c3-6eb3f86aa7c3][call stack]] for each thread
+ * [[id:d590816c-e8fe-4e60-a7d5-9abd0f35e3ed][heap]]
+ * /shared/ memory pages with other processes
+ * a range of [[id:d9383949-a35c-4ff3-bd7d-04116e4628e8][kernel space]] address which are inaccessible to the
+   process (but become accessible whenever a kernal call executes)
+

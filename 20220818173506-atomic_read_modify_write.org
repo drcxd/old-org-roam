@@ -1,0 +1,18 @@
+:PROPERTIES:
+:ID:       a36d93f8-6e97-45a7-950a-6ec170d558d7
+:END:
+#+title: Atomic Read-Modify-Write
+#+filetags: :computer-science:concurrency:
+
+[[id:596b0a8c-b1bb-4e22-b9a0-1a855d1181a8][Atomic Reads and Writes]] are not enough to implement [[id:9af69701-95e6-42fd-a81b-fb59387d4d7e][Atomic
+Operation]]s. An atomic read-modify-write instruction reads value from
+memory, performs some operation on it then writes the result back to
+memory. All modern CPUs support concurrency by providing at least one
+atomic read-modify-write (RMW) instruction.
+
+Here are some typical atomic read-modify-write instructions:
+
++ [[id:efc6b358-3f8a-48bb-88e9-77cfe455c4a0][Test and Set]]
++ [[id:4f8d3b7a-4cd8-45ec-be22-bf007ef1bf80][Exchange]]
++ [[id:d4bd1682-59c2-4513-945f-fd18e47e93cd][Compare and Swap]]
++ [[id:df98e314-6ba8-46dd-9bdc-c3893d1c1353][Load Linked/Store Conditional]]

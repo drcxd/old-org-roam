@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       b30ff05f-a1af-462e-82d7-446589cbf25b
+:END:
+#+title: Context Switch
+#+filetags: :computer-science:operating-system:
+
+Context switching happens when any [[id:7ba23e43-9f67-4502-a54b-e6a2bd647371][thread]] is transitioned from one
+[[id:d43a5f4a-a984-4ff7-b336-5237a6a37495][state]] to another.
+
+When a thread is transitioned away from running state, its associated
+register values are saved in memory. Later, when it is transitioned
+back to running state, those values are loaded to registers to restore
+its [[id:e83c7ebf-cc75-43a2-8fe3-d72dba205dd4][execution context]].
+
+If context switching happens between threads belong to different
+processes, not only register values, but also the process's [[id:7fdbb75a-f086-4991-98a7-ae300911eabf][page table]]
+needs to be switched. This is usually done by saving and restoring a
+pointer to a page table. Also, the translation lookaside table (TLB)
+must also be flushed. Thus, switching between threads belong to
+different processes is more expensive than switching between threads
+within the same process.

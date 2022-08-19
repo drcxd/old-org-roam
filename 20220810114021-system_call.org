@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       806da37a-e8ad-4338-9453-f691bcac057f
+:END:
+#+title: System Call
+#+filetags: :operating-system:computer-science:
+
+Systems calls are interfaces an operating system provides to its [[id:f4adfdc5-5e68-41d0-ba31-9aad7297fc12][user
+program]]s to perform privileged tasks.

@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       e83c7ebf-cc75-43a2-8fe3-d72dba205dd4
+:END:
+#+title: Execution Context
+#+filetags: :computer-science:operating-system:
+
+An execution context is a set of information:
+
+ * The values of all the registers.
+ * Its [[id:3e87032c-4614-4507-92c3-6eb3f86aa7c3][call stack]].
+
+A [[id:7ba23e43-9f67-4502-a54b-e6a2bd647371][thread]], a [[id:daa76d0b-8eb0-4d5c-89fa-a3a23b28b068][fiber]] or a [[id:221228a9-dd04-402a-9e64-f12ca051884e][coroutine]] all has its own execution context.

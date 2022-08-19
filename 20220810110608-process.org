@@ -1,0 +1,30 @@
+:PROPERTIES:
+:ID:       a53f7936-135e-410f-89cd-3a4935e43c6a
+:END:
+#+title: Process
+#+filetags: :operating-system:computer-science:
+
+A process is the unit an operating system uses to manage an running
+instance of a program contained in an executable file.
+
+A process consists of:
+ * a /process id (PID)/ that uniquely defines the process within the
+   operating system
+ * a set of /permissions/
+ * a reference to the process's /parent process/, if any
+ * a [[id:794b11a0-038d-4769-8d9f-eebd91efd9b4][virtual memory space]] defines the process's "view" of physical
+   memory
+ * the values of /environment variables/
+ * all open /file handles/ in use by the process
+ * the current /working directory/ of the process
+ * resources for managing /synchronization/ and /communication/
+   between processes in the system, such as message queues, pipes and
+   semaphores
+ * one or more [[id:7ba23e43-9f67-4502-a54b-e6a2bd647371][thread]]s
+
+Each process has its own page table. A process's [[id:7fdbb75a-f086-4991-98a7-ae300911eabf][page table]] defines
+its [[id:794b11a0-038d-4769-8d9f-eebd91efd9b4][memory map]].
+
+* Reference
+
+[fn:1] Jason Gregory. Game Engine Architecture, Third Edition, 4.4.5.1

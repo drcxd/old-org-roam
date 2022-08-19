@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       7fd3d0a9-74c5-455b-9d44-dd06c844a845
+:END:
+#+title: Executable Image
+#+filetags: :computer-science:operating-system:
+
+An executable image is part of an executable file. It is a partial
+image of the program's memory when the program is running.

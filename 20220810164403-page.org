@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       20155c50-78ff-4b37-a066-f7f93a1725d4
+:END:
+#+title: Page
+#+filetags: :operating-system:computer-science:
+
+A page is the smallest unit an operating system used to allocate
+[[id:05d61602-db80-4697-a817-0a6b2b1195ec][virtual memory]] for [[id:a53f7936-135e-410f-89cd-3a4935e43c6a][process]]es. It is a continuous block of memory
+cells. A page is usually of the size of 4KiB or 8KiB.

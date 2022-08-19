@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       a97e8322-3179-484d-8ea5-504683ecf8c5
+:END:
+#+title: Memory Fence
+#+filetags: :computer-science:concurrency:
+
+Modern CPUs provide special machine language instructions known as
+memory fences to enforce ordering of memory-read/write
+operations. Memory fences also serve as [[id:25e2f5b2-834a-4bde-a257-5b8b20878d99][Compiler Barrier]]s and prevent
+CPU-level instruction reordering.
+
+Different ISAs may provide different sets of memory-fence instructions

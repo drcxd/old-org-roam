@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       25e2f5b2-834a-4bde-a257-5b8b20878d99
+:END:
+#+title: Compiler Barrier
+#+filetags: :computer-science:concurrency:
+
+Compiler barriers are pseudoinstructions specific to compilers. They
+are used to prevent compilers from reordering instructions across
+them. However, they only works on the compiler-level, which means they
+can not stop CPUs from reordering machine language instructions.

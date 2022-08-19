@@ -1,0 +1,163 @@
+:PROPERTIES:
+:ID:       9dca83e6-cda0-4472-8908-786dc5f6ee89
+:END:
+#+title: Meow
+#+filetags: :emacs:
+
+* 引子
+
+其实我对 Evil 并没有太大不满，甚至说使用 Evil + General 进行按键配置很
+是开心，并且也积攒了不少按键设置。偶然在逛论坛的时候，发现有人提出放弃
+Evil 转而使用 Emacs 原生按键的想法。在思考之后，我认为用 Emacs 原生按
+键在文件中进行移动，实在是太痛苦了，如果我按住 =j= 就能移动光标，为什
+么要按 =C-n= 呢？然而 Evil 的很多功能我也确实并不使用，同时 Normal
+Mode 下很多原生按键失效确实也是一个让人感到不爽的点。这时，看到有人提
+到 Meow 也是类似于 Evil 的模式编辑。正好有时间，就折腾一下试试。
+
+* Meow 的哲学
+** 自洽的按键配置
+
+如作者所说的，Meow 的设计哲学就是非侵入式。之前，我利用 General 绑定虽
+然方便，但是却产生了隐含的依赖。我的配置方案是模仿 Purcell 的结构来的，
+用一个 =init.el= 去加载其他的 =init-*.el= 文件。因此，使用 General 绑
+定按键就必然产生文件之间的依赖。例如：
+
+#+begin_src elisp
+  ;;; init.el
+  (require 'init-lsp)
+  (require 'init-general)
+
+  ;;; init-lsp.el
+  ;; install lsp related packages
+  ;; lsp configurations
+  ;; but no key bindings
+
+  ;;; init-general.el
+  (general-define-key
+   :states 'normal
+   :prefix "SPC"
+   "ll" 'lsp
+   "lr" 'lsp-workspace-restart
+   ;; ... other bindings
+   )
+#+end_src
+
+显然， =init-general.el= 文件对 =init-lsp.el= 文件有着隐藏的依赖，如果
+=init-lsp.el= 文件没有被执行，则 =init-general.el= 中定于的快捷键都没
+有了意义。同时，如果我决定不再使用 General，那么我需要在重新配置
+General 中配置过的所有功能的按键绑定。
+
+而当我使用 Meow 的时候，配置就变成了这样：
+
+#+begin_src elisp
+  ;;; init-lsp.el
+  ;; install packages and other configurations
+  (global-set-key (kbd "C-c ll") 'lsp)
+  (define-key lsp-mode-map (kbd "C-c lr") 'lsp-workspace-restart)
+  ;; other key bindings for lsp
+  ;;; init-meow.el
+  ;; meow configurations but no direct reference to lsp
+#+end_src
+
+这样 =init-lsp.el= 就变成了一个独立的配置文件，它不依赖其它配置文件初
+始化它的功能的按键。而 =init-meow.el= 也是一个独立的包，它没有对任何其
+他包中命令的引用。在我的配置中增加 Meow 不需要我去修改其他包的按键绑定，
+而当我从我的配置中移除 Meow 的时候也不需要再为所有的包重新绑定按键。
+
+** 成长性很强的 KEYPAD 模式
+
+除了让我的配置更加易于维护之外， Meow 还提供了强大，开箱即用，且有很强
+的成长性的KEYPAD 模式。KEYPAD 模式可以适应任何遵从 Emacs 按键绑定规则
+的包。对于符合 Emacs 按键绑定规则的命令， KEYPAD 可以让我不用写一行配置，
+就能做到类似于 leader key 的效果。
+
+Meow 的 KEYPAD 模式，由 =SPC= 键唤起，会视情况翻译我接下来的按键，并且
+如果在某些特定情况下找不到按键绑定时，使用备选的按键绑定。这样说起来比
+较抽象，还是用一个例子来说明更清晰。
+
+在 org-mode 中 =C-c C-t= 可以用来给一个标题添加、修改或移除 TODO 关键
+字。使用 Meow 的 KEYPAD，则只需要按下 =SPC c t= 即可，Meow 会自动将这
+个序列自动翻译成 =C-c C-t= 。同理， org-mode 中的添加标签命令 =C-c
+C-q= 也只需要我按下 =SPC c q= 。而之前我所配置的启用 lsp-mode 的快捷键
+=C-c ll= ，在 KEYPAD 模式中则需要按下 =SPC ll= 。而这一切都不需要额外
+写一行配置，只要命令有符合 Emacs 原生按键绑定规则的绑定即可，一切都是
+开箱即用。想到这里，我不得不称赞 Meow 作者的巧思。
+
+* 使用 Meow 的困惑
+
+目前位置， Meow 让我感到惊喜，甚至已经有些迫不及待地想要替换掉 Evil.
+可把它实际投入使用的时候，却又发现了各种各样的难题。
+
+** KEYPAD 的问题
+
+因为 KEYPAD 会优先选择带 Ctrl 修饰的按键，当想要使用不带 Ctrl修饰的按
+键时，就会感到很迷惑。例如， =switch-to-buffer= 默认绑定为=C-x b= ，而
+=ibuffer= 默认绑定为 =C-x C-b= 。在 KEYPAD 模式下，要达到=C-x b= 的效
+果，需要按下 =SPC x SPC b= ，而达到 =C-x C-b= 的效果，却只需要 =SPC x
+b= 。这不得不说是一件十分反直觉的事情：本来按键较少的命令，在 KEYPAD
+模式下却要按更多的按键。
+
+Emacs 的按键绑定规则说明，只有 =C-x <letter>= 的按键是留给用户绑定的。
+也就是说，我可以绑定 =C-x a= ，但是我并不能阻止我使用的某个包的作者绑
+定一个命令到 =C-x C-a= 上。而这，会使我在使用 KEYPAD 模式时，更难使用
+我自己绑定的按键。我什么时候会特意自己绑定一个按键？当我觉得这个命令我
+要经常使用的时候，可是 KEYPAD 的设定，却让我难以使用我特意绑定的按键。
+
+为了解决这个问题，KEYPAD 增加了一个捷径，即按下 =SPC <letter>= 等价于
+按下 =C-c <letter>= 。然而，由于 KEYPAD 对 c/x/m/g/h 的特殊翻译，导致
+绑定在 =C-c c= 下的按键不能通过 =SPC c= 快捷访问，而必须要使用更多按键
+数的 =SPC c SPC c= 。在这个前提下，如果我原有的快捷键就是绑定在 =C-c
+c= 下的，为了在 KEYPAD 中快捷的访问它，我就需要将这个快捷键移动到 =C-c
+<letter>= 下，而 =<letter>= 不能是 c/x/m/g/h 中的任何一个。从这一点上，
+Meow 并没有做到完全的非侵入式。为了方便地使用 KEYPAD，我必须修改自己的
+按键配置，否则就要忍受 =SPC c SPC c= 这样的按键序列，而这对常用命令来
+说，几乎是不可忍受的。
+
+最后，不知由于什么原因，定义在 minor-mode map 中的按键，并不能被
+KEYPAD 快捷访问。例如：
+
+#+begin_src elisp
+  ;; KEYPAD usage: SPC ll
+  (global-set-key (kbd "C-c ll") 'lsp)
+  ;; KEYPAD usage: SPC c SPC l r, cannot access this through SPC lr
+  (define-key lsp-mode-map (kbd "C-c lr") 'lsp-workspace-restart)
+#+end_src
+
+* 按键绑定的哲学
+
+至此，Meow 让我十分纠结：一方面，我十分喜欢它的移动选择方案、KEYPAD的
+成长性、（绝大多数情况下）非侵入式的设计；一方面，KEYPAD 对我目前工作
+流的改变让我感到很不安。如果一个命令本来只需要 =SPC xb= 来执行，但现在
+却需要 =SPC x SPC b= ，这绝对不是一个好消息。
+
+回到按键绑定这件事本身，它实际上是一个编码的过程：将一个命令用快捷键进
+行编码。每当我需要访问这个命令时，就用它对应的编码来代替它本身。为了最
+小化编码整体的长度（最小化按键的数量），就要将出现频率高的命令用更短的
+编码代替。这是一个优化的过程，并且对每个不同的个体来说，解决方案都是不
+同的，因为每个人使用的命令极其频率不尽相同。因此，这个过程不可能是完全
+非侵入的：不针对个人使用命令的情况去做特别的优化，是不可能达到最优解的。
+因此， 如果不打折扣地坚持 Meow 的非侵入式理念，是做不到最优化按键绑定
+方案的。
+
+Meow 的优点是在不进行特制优化的前提下，可以比较方便地使用 KEYPAD 模式
+用快捷键访问各种命令。在 org-mode 下使用 KEYPAD 可以说是非常享受。按键
+绑定是否一定需要特制优化？这是一个见仁见智的问题，我的答案是需要。对于
+一个长时间使用 Emacs 工作的人，我使用的命令范围有限，并且需要用尽可能
+少的按键去访问它们，所以特制优化对于我来说是必须的。
+
+那么，我该如何使用 Meow？
+
+* 可能的使用方案
+** KEYPAD 作为次优选择
+
+Meow 默认将空格绑定为 KEYPAD，但是 KEYPAD 如前所述并不能在所有情况下都
+达到最优解。因此，只能将它作为备选方案。我将空格仍然作为传统的 leader
+key 使用，自定义该 leader key 对应的所有快捷键，通过该 leader key 可以
+再调用 KEYPAD。
+
+** 侵入式 Meow
+
+既然 KEYPAD 不支持将 =SPC x/h/c/g/m= 翻译为 =C-c x/h/c/g/m= ，我只能选
+择让所有的快捷键避开 =C-c x/h/c/g/m= 从而达到使用 KEYPAD 的同时还能够
+用最少的按键使用我个人自定义的命令。这样虽然减少了可以选择使用的快捷键，
+但是却能兼得 KEYPAD 的可成长性和特制优化的最少按键。

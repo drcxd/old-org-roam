@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       61f3fd7f-7f07-45b6-9716-4d0108e4998b
+:END:
+#+title: Race Condition
+#+filetags: :computer-science:operating-system:concurrency:
+
+A race condition is the condition that the behavior of the program is
+dependent on the sequence or timing of some uncontrollable event.
+
+The most common race condition in concurrent programming is [[id:0163335d-6745-4f9c-94e5-0450dad505ab][data race]].

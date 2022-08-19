@@ -1,0 +1,41 @@
+:PROPERTIES:
+:ID:       daa76d0b-8eb0-4d5c-89fa-a3a23b28b068
+:END:
+#+title: Fiber
+#+filetags: :computer-science:operating-system:
+
+Fibers are similar to [[id:7ba23e43-9f67-4502-a54b-e6a2bd647371][thread]]s, in that it represents a running
+instance of a stream of machine language instructions. A fiber has its
+own [[id:e83c7ebf-cc75-43a2-8fe3-d72dba205dd4][execution context]].
+
+However, a fiber is never scheduled by the operating system. Fibers
+run within the context of a thread, they have to work cooperatively so
+each one gets its chance to execute.
+
+Two fibers in the same thread will never run concurrently on two
+different cores.
+
+Since switching between fibers happens in the same thread, it is
+faster than switching between threads.
+
+#+begin_quote
+In general, fibers do not provide advantages over a well-designed
+multithreaded application. However, using fibers can make it easier to
+port applications that were designed to schedule their own threads. [fn:1]
+#+end_quote
+
+* Different Interpretation of Fibers
+
+The behavior of fibers is not commonly accepted. In Microsoft
+implementation, a fiber cannot block. However, in this paper[fn:2] and
+boost documentation[fn:3], fibers can block and even are scheduled by a
+scheduler.
+
+The only commonly accepted concept about fiber is that fibers works
+cooperatively rather than preemptively.
+
+* Reference
+[fn:1] Microsoft documents.
+https://docs.microsoft.com/en-us/windows/win32/procthread/fibers
+[fn:2] https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4024.pdf
+[fn:3] https://www.boost.org/doc/libs/1_75_0/libs/fiber/doc/html/fiber/scheduling.html

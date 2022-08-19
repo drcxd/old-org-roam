@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       4339c01d-1bfc-4beb-8d6c-155514a73041
+:END:
+#+title: Shared Data
+#+filetags: :computer-science:concurrency:
+
+Shared data is a central topic of concurrent programming. It refers to
+data that might be accessed or mutated by two or more flows of
+control.

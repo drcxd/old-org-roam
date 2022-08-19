@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       563cf0dc-69fa-4503-905c-ce5f54f6ac80
+:END:
+#+title: Data Section
+#+filetags: :computer-science:operating-system:
+
+Part of an [[id:7fd3d0a9-74c5-455b-9d44-dd06c844a845][executable image]]. Data section contians all /initialized/
+global values of a program. This section is loaded when the program
+starts, so all initialized global values are well initialized since
+the program starts.

@@ -1,0 +1,18 @@
+:PROPERTIES:
+:ID:       20a255db-fc39-4eac-9f4b-b519dc606337
+:END:
+#+title: Condition Variable
+#+filetags: :computer-science:operating-system:concurrency:
+
+Condition variable is one of the [[id:83d50ae1-7ae2-480a-be80-8a96fc193150][thread synchronization primitives]]
+provided by operating systems. Although named condition variable, it
+is actually a waiting queue. It allows [[id:7ba23e43-9f67-4502-a54b-e6a2bd647371][thread]]s to wait for some
+condition to become true or notify other sleeping threads to wake up.
+
+Since it is an object shared between threads, it must be used with a
+[[id:74b8b695-b415-4025-bd57-b98a8fb846b2][mutex]] to ensure it is accessed atomicly.
+
+Threads waiting on a condition variable might be woke up by the
+operating system /spuriously/, that is it is woke up when the
+condition it is waiting for is not ture yet, so usually the wait
+operation is done in a loop.

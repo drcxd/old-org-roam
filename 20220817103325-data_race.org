@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       0163335d-6745-4f9c-94e5-0450dad505ab
+:END:
+#+title: Data Race
+#+filetags: :computer-science:concurrency:
+
+Data race is a kind of [[id:61f3fd7f-7f07-45b6-9716-4d0108e4998b][race condition]] when two or more flows of
+control interfer with one another when accessing [[id:4339c01d-1bfc-4beb-8d6c-155514a73041][shared data]].

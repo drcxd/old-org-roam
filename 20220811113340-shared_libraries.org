@@ -1,0 +1,18 @@
+:PROPERTIES:
+:ID:       7795285c-a2f3-49c9-9c6d-a03207e82abf
+:ROAM_ALIASES: "Dynamic Link Libraries"
+:END:
+#+title: Shared Libraries
+#+filetags: :computer-science:operating-system:
+
+Programs using shared libraries still have unresolved symbols when they
+are compiled into executable files.
+
+When the program luanched, the operating system will also load the
+shared libraries it needs if they are not already loaded and maps a
+view of them into the process's [[id:794b11a0-038d-4769-8d9f-eebd91efd9b4][memory map]]. The addresses
+of functions and global variables provided by shared libraries are
+patched into the program's machine code.
+
+The benefit of using shared library is that when multiple programs use
+the same shared library, there is only one instance of it in the memory.

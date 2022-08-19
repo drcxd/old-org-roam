@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       7ed7eee4-02b0-4a86-8934-4476e2d10a4c
+:END:
+#+title: Mutex versus Semaphore
+#+filetags: :computer-science:operating-system:concurrency:
+
+A [[id:74b8b695-b415-4025-bd57-b98a8fb846b2][mutex]] is used to make an operation atomic, while a [[id:1d8e9220-e956-462d-8284-cbde6db0172d][semaphore]] is used
+to pass signal between threads.
+
+A mutex can only be released by the [[id:7ba23e43-9f67-4502-a54b-e6a2bd647371][thread]] acquired it, while a
+semaphore can be signaled by any thread, not only the one who waited
+on it.

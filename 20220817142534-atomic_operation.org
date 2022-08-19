@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       9af69701-95e6-42fd-a81b-fb59387d4d7e
+:END:
+#+title: Atomic Operation
+#+filetags: :computer-science:concurrency:
+
+An atomic operation refers to a [[id:f9c52f78-fd4b-475a-9b56-01e72e483da2][critical operation]] that can not be
+interrupted when operating on [[id:4339c01d-1bfc-4beb-8d6c-155514a73041][shared data]] by other critical operations
+of the same shared data.

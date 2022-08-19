@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       5ddc1c28-51e4-45ca-957e-7e024c479261
+:END:
+#+title: Cache Coherency Domain
+#+filetags: :computer-science:concurrency:
+
+The L1 cache, any higher-level caches and main RAM form a cache
+coherency domian. A [[id:0dd5cfd0-e2d1-4d3e-8d08-a3e9b18bf636][Cache Coherency Protocol]] is used to promise all
+the cores in the CPU to share data so that each core has the same view
+of the data.

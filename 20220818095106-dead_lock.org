@@ -1,0 +1,15 @@
+:PROPERTIES:
+:ID:       dcdd5860-cdc8-46e8-b2eb-790fd59f718a
+:END:
+#+title: Deadlock
+#+filetags: :computer-science:concurrency:
+
+Deadlock is a situation that all [[id:7ba23e43-9f67-4502-a54b-e6a2bd647371][thread]]s of a program are blocked and
+the program hangs forever.
+
+For a deadlock to occur, the /Coffman conditions/ must be satisfied:
+
+1. Mutual exclusion.
+2. Hold and wait.
+3. No lock preempton.
+4. Circular wait.

@@ -1,0 +1,18 @@
+:PROPERTIES:
+:ID:       1d8e9220-e956-462d-8284-cbde6db0172d
+:END:
+#+title: Semaphore
+#+filetags: :computer-science:operating-system:concurrency:
+
+Semaphore is one of the [[id:83d50ae1-7ae2-480a-be80-8a96fc193150][thread synchronization primitives]] provided by
+operating systems. It acts like an [[id:9af69701-95e6-42fd-a81b-fb59387d4d7e][atomic]] counter that cannot drop
+below 0.
+
+[[id:7ba23e43-9f67-4502-a54b-e6a2bd647371][Thread]]s can /wait/ on a semaphore or /signal/ it. When a thread waits
+on a semaphore, if its associated counter is larger than 0, then the
+counter is decreased; otherwise, the thead is blocked. Once a thread
+signals a semaphore, then its counter is increased and one of the
+waiting threads will be notified and woke up.
+
+A semaphore can be implemented using a counter, a [[id:74b8b695-b415-4025-bd57-b98a8fb846b2][mutex]], and a
+[[id:20a255db-fc39-4eac-9f4b-b519dc606337][condition variable]].

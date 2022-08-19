@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       f4adfdc5-5e68-41d0-ba31-9aad7297fc12
+:END:
+#+title: User Program
+#+filetags: :computer-science:operating-system:
+
+An user program is a program which has no special privilege, it relys
+on executing [[id:806da37a-e8ad-4338-9453-f691bcac057f][system call]]s to finish privileged tasks.

@@ -1,0 +1,15 @@
+:PROPERTIES:
+:ID:       d9383949-a35c-4ff3-bd7d-04116e4628e8
+:END:
+#+title: Kernel Space
+#+filetags: :operating-system:computer-science:
+
+The address space of a [[id:a53f7936-135e-410f-89cd-3a4935e43c6a][process]] is usually divided into two large
+contiguous blocks: user space and kernel space.
+
+User space is mapped through a [[id:7fdbb75a-f086-4991-98a7-ae300911eabf][page table]] that is unique to each
+process. Kernel space uses a separate page table that is shared by all
+processes. Thus, all processes share the same view of kernel memory.
+
+Processes can only access kernal space through [[id:806da37a-e8ad-4338-9453-f691bcac057f][system call]], otherwise,
+a page fault will occur and the program will crash.

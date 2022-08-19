@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       221228a9-dd04-402a-9e64-f12ca051884e
+:END:
+#+title: Coroutine
+#+filetags: :computer-science:operating-system:
+
+Coroutines are a particular type of user-level thread. Coroutines does
+not block or sleep. Coroutines also have no scheduler. Coroutines only
+yields to other coroutines. When a coroutine yields, its [[id:e83c7ebf-cc75-43a2-8fe3-d72dba205dd4][execution
+context]] is stored in memory. Since switching between coroutines does
+not involve kernel, it is more efficient than switching between threads.

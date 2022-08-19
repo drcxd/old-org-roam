@@ -1,0 +1,23 @@
+:PROPERTIES:
+:ID:       74b8b695-b415-4025-bd57-b98a8fb846b2
+:END:
+#+title: Mutex
+#+filetags: :computer-science:operating-system:concurrency:
+
+Mutex is one of the [[id:83d50ae1-7ae2-480a-be80-8a96fc193150][thread synchronization primitives]] provided by
+operating systems. Its name stands for "mutual exclusion". It allows
+[[id:f9c52f78-fd4b-475a-9b56-01e72e483da2][critical operation]] to be made [[id:9af69701-95e6-42fd-a81b-fb59387d4d7e][atomic]].
+
+At any given time, at most one [[id:7ba23e43-9f67-4502-a54b-e6a2bd647371][thread]] can /acquire/ a mutex. Any
+thread trying to acquire a mutex which is already acquired by other
+threads will be put into sleep. When the mutex is released, it wakes
+up one of the threads blocked by it.
+
+Mutex can be shared between [[id:a53f7936-135e-410f-89cd-3a4935e43c6a][process]]es.
+
+Since using mutex requires kernel calls, it is quite expensive. Thus,
+some operating system provides light-weight mutex called /critical
+section/. A critical section behaves like a mutex unless it cannot be
+shared between processes and it uses a /spin lock/ to block
+threads. Thus, it does not require kernel calls and is more efficient
+to use.

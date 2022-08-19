@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       d590816c-e8fe-4e60-a7d5-9abd0f35e3ed
+:END:
+#+title: Heap (Memory)
+#+filetags: :computer-science:operating-system:
+
+Heap is a region of memory as part of a process's [[id:794b11a0-038d-4769-8d9f-eebd91efd9b4][memory map]]. When the
+process requests memory dynamically, the [[id:20155c50-78ff-4b37-a066-f7f93a1725d4][page]]s allocated by operating
+system for this process goes to this region.

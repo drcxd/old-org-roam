@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:       83d50ae1-7ae2-480a-be80-8a96fc193150
+:END:
+#+title: Thread Synchronization Primitives
+#+filetags: :computer-science:operating-system:concurrency:
+
+Thread synchronization primitives are tool set provided by operating
+systems which provides two services to concurrent programs:
+
+1. The ability to make [[id:f9c52f78-fd4b-475a-9b56-01e72e483da2][critical operation]] /atomic/
+2. The ability to /synchronize/ the operations of two or more threads:
+   * by enabling a [[id:7ba23e43-9f67-4502-a54b-e6a2bd647371][thread]] to /go to sleep/ while it waits for a resource
+     to become available or for one or more threads to complete a task
+   * by enabling a thread to /notify/ one or more sleeping threads by
+     waking them up
+
+
+Using thread synchronization primitives provided by operating systems
+is quite expensive since it requires a [[id:b30ff05f-a1af-462e-82d7-446589cbf25b][context switch]] into protected
+mode.

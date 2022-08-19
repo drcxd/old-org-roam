@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       736271f7-d51f-4b36-9e41-2d0fe784bbe3
+:END:
+#+title: Causes of Data Race Bugs
+#+filetags: :concurrency:computer-science:
+
+A [[id:0163335d-6745-4f9c-94e5-0450dad505ab][data race]] bug can be caused by one of the following reason:
+
++ /interruption/ of one [[id:f9c52f78-fd4b-475a-9b56-01e72e483da2][critical operation]] by another of the same
+  [[id:4339c01d-1bfc-4beb-8d6c-155514a73041][shared data]]
++ /instruction reordering/ optimizations in multithread program
++ hardware-specific /memory ordering semantics/

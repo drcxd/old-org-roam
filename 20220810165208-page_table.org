@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       7fdbb75a-f086-4991-98a7-ae300911eabf
+:END:
+#+title: Page Table
+#+filetags: :operating-system:computer-science:
+
+An operating system uses page tables to map virtual [[id:20155c50-78ff-4b37-a066-f7f93a1725d4][page]] indices to
+physical page indicies.
+
+Every [[id:a53f7936-135e-410f-89cd-3a4935e43c6a][process]] has its own page table.
