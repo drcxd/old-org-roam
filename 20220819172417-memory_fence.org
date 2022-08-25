@@ -9,4 +9,11 @@ memory fences to enforce ordering of memory-read/write
 operations. Memory fences also serve as [[id:25e2f5b2-834a-4bde-a257-5b8b20878d99][Compiler Barrier]]s and prevent
 CPU-level instruction reordering.
 
-Different ISAs may provide different sets of memory-fence instructions
+Different ISAs may provide different sets of memory-fence
+instructions, but in general, we can reason about their semantics.
+
+There are three memory ordering semantics:
+
+1. [[id:fb00a83d-6b52-4127-af9d-a37f7c74d463][Release Semantics]]
+2. [[id:0ee8d118-5613-4d7b-b354-7e09d05ccad4][Acquire Semantics]]
+3. [[id:dbdb0565-45ff-4a8a-8f7a-42fcc33cc846][Full Fence Semantics]]

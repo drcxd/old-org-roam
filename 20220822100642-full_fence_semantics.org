@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       dbdb0565-45ff-4a8a-8f7a-42fcc33cc846
+:END:
+#+title: Full Fence Semantics
+#+filetags: :computer-science:concurrency:
+
+This semantic guarantees that all memory operations appear to occur in
+program order across the boundary created by a fence instruction in
+the code. No read/write operations occur after the fence can appear to
+occur before the fence, and no read/write operations occur before the
+fence can appear to occur after the fence.

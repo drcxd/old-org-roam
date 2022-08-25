@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       0ee8d118-5613-4d7b-b354-7e09d05ccad4
+:END:
+#+title: Acquire Semantics
+#+filetags: :computer-science:concurrency:
+
+This semantic guarantees that a read from shared memory can never be
+passed by read/write operations /after/ it in program order.
+
+An acquire semantic is usually used when a thread performs two
+consecutive reads, in which the second read is conditional on the
+first one.
+
+Technically, when a core executes a fence instruction with acquire
+semantics, it waits until all writes from other cores have been fully
+flushed into the [[id:5ddc1c28-51e4-45ca-957e-7e024c479261][Cache Coherency Domain]] before it continues on to
+execute the second read.
+
+* Reference
+[fn:1] Jason Gregory. Game Engine Architecture, Third
+Edition. 4.9.4.6, 4.9.4.7

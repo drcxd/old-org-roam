@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       fb00a83d-6b52-4127-af9d-a37f7c74d463
+:END:
+#+title: Release Semantics
+#+filetags: :computer-science:concurrency:
+
+This semantic guarantees that a /write/ to shared memory can never be
+passed by any read/write operations /precedes/ it in program order.
+
+A release semantic is usually used when a thread performs two
+consecutive writes, and we need to ensure that all other threads will
+see the two writes in the correct order.
+
+Technically, when a core executes a fence instruction with release
+semantics, it waits until all prior write instructions have been fully
+committed to memory within [[id:5ddc1c28-51e4-45ca-957e-7e024c479261][Cache Coherency Domain]] before executing the
+second write.
+
+* Reference
+[fn:1] Jason Gregory. Game Engine Architecture, Third
+Edition. 4.9.4.6, 4.9.4.7

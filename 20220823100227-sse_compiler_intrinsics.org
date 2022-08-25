@@ -1,0 +1,17 @@
+:PROPERTIES:
+:ID:       4869568e-2c8b-43d0-92b6-e8b1a5402816
+:END:
+#+title: Compiler Intrinsics
+#+filetags: :computer-science:SIMD:
+
+Compilers provide /intrinsics/: special syntax that looks and behaves
+like C function but is converted to inline assembly code by the
+compilers.
+
+They are used to write more portable code involving special assembly
+language instructions that are not portable at all. For example, the
+SSE and AVX assembly language instructions, or the pause instruction
+that is used in spin-lock.
+
+Intel's manual about intrinsics:
+https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html

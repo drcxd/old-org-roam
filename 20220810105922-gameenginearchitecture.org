@@ -1,3 +1,4 @@
+# -*- org-num-max-level: 4; -*-
 :PROPERTIES:
 :ID:       3d576eac-f2c5-4f6d-b6c2-4b7cb911e7c3
 :END:
@@ -287,3 +288,121 @@ IA32 Architectures” by Michael Chynoweth
 *** Further Reading on Lock-Free Programming
 ** SIMD/Vector Processing
 *** The SSE Instruction Set and Its Registers
+**** The =__m128= Data Type
+**** Alignment of SSE Data
+**** SSE Compiler Intrinsics
+**** Some Useful SSE Intrinsics
+**** AltiVec =vector= Types
+*** Using SSE to Vectorize a Loop
+*** Vectorized Dot Products
+**** A First Attemp (That's Slow)
+**** A Better Approach
++ The MADD Instruction
+**** Transpose as We Go
+**** Shuffle and Transpose
+*** Vector Matrix Multiplication with SSE
+*** Matrix-Matrix Multiplication with SSE
+*** Generalized Vectorizaiton
+*** Vector Predication
+** Introduction to GPGPU Programming
+*** Data-Parallel Computations
+*** Compute Kernels
+*** Executing a Kernel
+*** GPU Threads and Thread Groups
+**** From SIMD to SIMT
+*** Further Reading
+* 3D Math for Games
+** Solving 3D Problems in 2D
+** Points and Vectors
+*** Points and Cartesian Coordinates
+*** Left-Handed versus Right-Handed Coordinate Systems
+*** Vectors
+**** Cartesian Basis Vectors
+*** Vector Operations
+**** Multiplication by a Scalar
+**** Addition and Subtraction
+***** Adding and Subtracting Points and Directions
+**** Magnitude
+**** Vector Operations in Action
+**** Normalizations and Unit Vectors
+**** Normal Vectors
+**** Dot Product and Projection
+***** Vector Projection
+***** Magnitude as a Dot Product
+***** Dot Product Tests
+***** Some Other Applications of the Dot Product
+**** Cross Product
+***** Magnitude of the Cross Product
+***** Direction of the Cross Product
+***** Properties of the Cross Product
+***** The Cross Product in Action
+**** Pseudovectors and Exterior Algebra
+*** Linear Interpolation of Points and Vectors
+** Matrices
+*** Matrix Multiplication
+*** Representing Points and Vectors as Matrices
+*** The Identity Matrix
+*** Matrix Inversion
+*** Transposition
+*** Homogeneous Coordinates
+**** Transforming Direction Vectors
+*** Atomic Transformation Matrices
+**** Translation
+**** Rotation
+**** Scale
+*** 4 × 3 Matrices
+*** Coordinate Spaces
+**** Model Space
+**** World Space
+**** View Space
+*** Change of Basis
+**** Coordinate Space Hierarchies
+**** Building a Change of Basis Matrix
+***** Scaling the Child Axes
+**** Extracting Unit Basis Vectors from a Matrix
+**** Transforming Coordinate Systems versus Vectors
+*** Transforming Normal Vectors
+*** Storing Matrices in Memory
+** Quaternions
+*** Unit Quaternions as 3D Rotations
+*** Quaternion Operations
+*** Rotating Vectors with Quaternions
+**** Quaternion Concatenation
+*** Quaternion-Matrix Equivalence
+*** Rotational Linear Interpolation
+**** Spherical Linear Interpolation
+**** To SLERP or Not to SLERP (That's Still the Question)
+** Comparision of Rotational Representations
+*** Euler Angles
+*** 3 × 3 Matrices
+*** Axis + Angles
+*** Quaternions
+*** SRT Transformations
+*** Dual Quaternions
+*** Rotations and Degrees of Freedom
+** Other Useful Mathematical Objects
+*** Lines, Rays and Line Segments
+*** Spheres
+*** Planes
+*** Axis-Aligned Bounding Boxes (AABB)
+*** Oriented Bounding Boxes (OBB)
+*** Frusta
+*** Convex Polyhedral Regions
+** Random Number Generation
+*** Linear Congruential Generators
+*** Mersenne Twister
+*** Mother-of-All, Xorshift and KISS99
+*** PCG
+* Engine Support Systems
+** Subsystem Start-Up and Shut-Down
+*** C++ Static Initialization Order (or Lack Thereof)
+**** Construct On Demand
+*** A Simple Approach That Works
+*** Some Examples from Real Engines
+**** OGRE
+**** Naughty Dog's /Uncharted/ and /The Last of Us/ Series
+** Memory Management
+*** Optimizing Dynamic Memory Allocation
+**** Stack-Based Allocators
+***** Double-Ended Stack Allocators
+**** Pool Allocators

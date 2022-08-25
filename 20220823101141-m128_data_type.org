@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:       f91f5320-471e-4cda-a328-16445699fb32
+:END:
+#+title: __m128 Data Type
+#+filetags: :computer-science:SIMD:
+
+The =__m128= type encapsulates a packed array of four =float=​s for use
+with with the SSE [[id:4869568e-2c8b-43d0-92b6-e8b1a5402816][Compiler Intrinsics]].
+
+Declaring local variables or function arguments of =__m128= type
+usually makes the compiler treats them as direct proxies of SSE
+registers. However, declaring global variables, members, or sometimes
+local variables of =__m128= type makes the data being stored as
+16-byte-aligned  =float=​s in memory.
+
+Global, local of =__m128= type is automatically 16-byte
+aligned. Member variables of =__m128= type is also aligned /relative/
+to the starting address of the class/structure. However, dynamically
+allocated class/structure instances containing =__m128= members must
+be aligned manually.
